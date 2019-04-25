@@ -8,5 +8,25 @@
   </head>
   <body>
     <h1>Programa de colas</h1>
+    <!-- Cargar la libreria -->
+    <script src="socket.io/socket.io.js"></script>
+
+    <!-- Definicion de funciones que se quiere que se disparen cuando se reciba o se envie info al servidor -->
+    <script>
+      // Se usa var para aumentar la compatibilidad entre navegadores web
+      var socket = io(); //io es una funcion que aparece gracias a la libreria que se importo mas arriba
+      // ES el mismo objeto que se tiene en el backend como 'io'
+      // Es el que se va a utilizar para la comunicacion en ambos lugares
+      // Funcionan casi igual
+      // UNa vez declarado el socket, se pueden declarar las funciones
+
+      // Va a indicar cuando se esta conectado con el servidor, es decir, cuando se tiene una conexion
+      // o un canal de comunicacion abierto entre el servidor y el cliente
+      socket.on('connect', function(){
+        console.log('Conectado al servidor');  //ESto indica que el codigo del frontend va a estar pendiente de cualquier
+        // cosa que suceda con el backend 
+
+      });
+    </script>
   </body>
 </html>
