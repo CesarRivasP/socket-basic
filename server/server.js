@@ -22,6 +22,10 @@ let io = socketIO(server);
 // client contiene toda la informacion de la computadora o conexion que se establecio
 io.on('connection', (client) => {
   console.log('Usuario conectado');
+
+  client.on('disconnect', () => {
+    console.log('Usuario desconectado');
+  })
 })
 
 
