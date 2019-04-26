@@ -23,6 +23,13 @@ let io = socketIO(server);
 io.on('connection', (client) => {
   console.log('Usuario conectado');
 
+  // Emitir desde el servidor, escuchar en el cliente
+  client.emit('enviarMensaje', {
+    user: 'Administrador',
+    message: 'Bienvenido a esta aplicacion'
+  })
+
+
   client.on('disconnect', () => {
     console.log('Usuario desconectado');
   })
