@@ -39,7 +39,7 @@
       // de manera privada
       // los 'on' son para escuchar informacion o sucesos
       // (nombre del evento, lo que se va a enviar)
-      socket.emit('enviarMensaje', {
+      socket.emit('enviarMensaje', {  //Enviar informacion
         user: 'Cesar',
         menssage: 'Hello World'
       });
@@ -48,6 +48,12 @@
       // booleanos. Lo mas comun es enviar un objeto. De esa manera se puede poner gran cantidad de informacio
       // para enviar al servidor en un unico envio
 
+
+
+      // Escuchar informacion
+      socket.on('enviarMensaje', function(message) {
+        console.log('Servidor: ', message);
+      })
     </script>
   </body>
 </html>
