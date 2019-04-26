@@ -32,6 +32,22 @@
       socket.on('disconnect', function() {
         console.log('Perdida la conexion con el servidor');
       });
+
+
+      // Emitir desde el cliente
+      // los 'emit' son para enviar informacion. Es solo enviarselo al servidor, solo le habla al servidor
+      // de manera privada
+      // los 'on' son para escuchar informacion o sucesos
+      // (nombre del evento, lo que se va a enviar)
+      socket.emit('enviarMensaje', {
+        user: 'Cesar',
+        menssage: 'Hello World'
+      });
+
+      // se puede mandar cualquier cosa, pero normalmente no se acostumbra a mandar cadenas planas o valores
+      // booleanos. Lo mas comun es enviar un objeto. De esa manera se puede poner gran cantidad de informacio
+      // para enviar al servidor en un unico envio
+
     </script>
   </body>
 </html>
