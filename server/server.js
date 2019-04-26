@@ -26,7 +26,19 @@ io.on('connection', (client) => {
   client.on('disconnect', () => {
     console.log('Usuario desconectado');
   })
+
+
+  // Para recibir la informacion en el servidor
+  // Hay que implementar para poder escuchar el mensaje
+  // -- Escuchar al cliente
+  //        (nombre del evento, recibir evento)
+  client.on('enviarMensaje', (message) => {
+    console.log(message);
+  })
+
 })
+
+
 
 
 // app.listen(port, (error) => {
