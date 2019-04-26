@@ -38,11 +38,21 @@
       // los 'emit' son para enviar informacion. Es solo enviarselo al servidor, solo le habla al servidor
       // de manera privada
       // los 'on' son para escuchar informacion o sucesos
-      // (nombre del evento, lo que se va a enviar)
-      socket.emit('enviarMensaje', {  //Enviar informacion
-        user: 'Cesar',
-        menssage: 'Hello World'
-      });
+      // (nombre del evento, lo que se va a enviar, una funcion que se ejecute cuando todo salga bien)
+      socket.emit(
+        'enviarMensaje',
+        {  //Enviar informacion
+          user: 'Cesar',
+          message: 'Hello World'
+        },
+        // Para confirmar si todo salio bien
+        // function(){
+        //   console.log('Se disparo el callback');
+        // }
+        function(response){
+          console.log('Server response: ', response);
+        }
+      );
 
       // se puede mandar cualquier cosa, pero normalmente no se acostumbra a mandar cadenas planas o valores
       // booleanos. Lo mas comun es enviar un objeto. De esa manera se puede poner gran cantidad de informacio
