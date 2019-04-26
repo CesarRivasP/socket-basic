@@ -25,7 +25,7 @@ io.on('connection', (client) => {
 
   // Emitir desde el servidor, escuchar en el cliente
   client.emit('enviarMensaje', {
-    user: 'Administrador',
+    // user: 'Administrador',
     message: 'Bienvenido a esta aplicacion'
   })
 
@@ -38,11 +38,22 @@ io.on('connection', (client) => {
   // Para recibir la informacion en el servidor
   // Hay que implementar para poder escuchar el mensaje
   // -- Escuchar al cliente
-  //        (nombre del evento, recibir evento)
-  client.on('enviarMensaje', (message) => {
+  //        (nombre del evento, recibir evento, funcion a llamar cuando todo salio bien o se realiza la accion)
+  client.on('enviarMensaje', (message, callback) => {
     console.log(message);
-  })
 
+    //El callback se puede llamar x cantidad de veces
+    if(message.user ) { //Si viene el usuario
+      callback({
+        response: 'Todo salio bien!'
+      });
+    }
+    else {
+      callback({
+        response: 'Todo salio mal!!'
+      })
+    }
+  })
 })
 
 
